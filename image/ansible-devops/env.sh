@@ -19,8 +19,8 @@ export K8S_AUTH_API_KEY=$(cat /run/secrets/kubernetes.io/serviceaccount/token)
 # -----------------------------------------------------------------------------
 # - MAS_CONFIG_DIR
 # - MAS_APP_ID
-# - MAS_APP_CATALOG_SOURCE
-# - MAS_APP_CHANNEL
+export MAS_APP_CATALOG_SOURCE=$(cat /workspace/settings/MAS_APP_CATALOG_SOURCE)
+export MAS_APP_CHANNEL=$(cat /workspace/settings/MAS_APP_CHANNEL)
 # - MAS_WORKSPACE_ID
 
 
