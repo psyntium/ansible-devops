@@ -16,7 +16,15 @@
     - airgap_install is not defined or not airgap_install
   include_tasks: "tasks/development-catalogs.yml"
 
-# 3. Install cert-manager
+# 3. Install release catalogs
+# -----------------------------------------------------------------------------
+- name: "Install release catalogs"
+  community.kubernetes.k8s:
+    template: templates/release-catalogs.yaml
+    wait: yes
+    wait_timeout: 60
+
+# 4. Install cert-manager
 # -----------------------------------------------------------------------------
 - name: Check if Cert Manager is already installed
   community.kubernetes.k8s_info:
@@ -36,7 +44,7 @@
   when: (_cert_manager_deployed.resources | length) == 0
 
 
-# 4. Install Service Binding Operator
+# 5. Install Service Binding Operator
 # -----------------------------------------------------------------------------
 # Important
 # Do not upgrade to SBO 0.9.0, there are breaking changes in the API that

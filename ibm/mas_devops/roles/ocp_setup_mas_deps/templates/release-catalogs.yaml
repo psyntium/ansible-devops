@@ -1,0 +1,34 @@
+---
+# Main Catalog: IoT
+# -----------------------------------------------------------------------------
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: ibm-mas-operators-catalog
+  namespace: openshift-marketplace
+spec:
+  displayName: IBM MAS Catalog
+  publisher: IBM
+  description: Catalog Source for IBM Maximo Application Suite
+  sourceType: grpc
+  image: icr.io/cpopen/ibm-mas-operator-catalog:latest
+  updateStrategy:
+    registryPoll:
+      interval: 45m
+---
+# Application Catalog: IoT
+# -----------------------------------------------------------------------------
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: ibm-mas-iot-operator-catalog
+  namespace: openshift-marketplace
+spec:
+  displayName: IBM Internet of Things Catalog
+  publisher: IBM
+  description: Catalog Source for IBM Internet of Things Service
+  sourceType: grpc
+  image: icr.io/cpopen/ibm-mas-iot-operator-catalog:latest
+  updateStrategy:
+    registryPoll:
+      interval: 45m
